@@ -106,7 +106,7 @@ public class Homework_19_09 {
 
         int[][] result = new int[2][totalSquares]; // Can I return it?
 
-        for (int i = 0; i < totalSquares; i++) { // I think other loop is needed
+        for (int i = 0; i < totalSquares; i++) {
             result[0][i] = (i + i * side) % (squaresInRow * side);
             result[1][i] = (i + i * side) % (squaresInColumn * side);
         }
