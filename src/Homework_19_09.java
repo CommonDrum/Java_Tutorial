@@ -4,17 +4,19 @@ public class Homework_19_09 {
 
     public static void main(String[] args) {
 
+        System.out.println("__________convertFromBinary___________");
+
         int[] bitsArray = new int[]{1, 0};
         int result1 = convertFromBinary(bitsArray);
         System.out.println(result1);
 
-        System.out.println("_____________________");
+        System.out.println("__________splitToDigits___________");
 
         int number = 123;
         int[] digitArray = splitToDigits(number);
         printIntArray(digitArray);
 
-        System.out.println("_____________________");
+        System.out.println("__________swap___________");
 
         int[] arrayToSwap = new int[]{1, 2, 3};
         int source = 0;
@@ -22,7 +24,17 @@ public class Homework_19_09 {
         swap(arrayToSwap, source, destination);
         printIntArray(arrayToSwap);
 
-        System.out.println("_____________________");
+        System.out.println("__________squares___________");
+
+        int screeenWidth = 2;
+        int screenHeight = 2;
+        int side = 2;
+
+        int[][] squares = calculateSquares(screeenWidth,screenHeight,side);
+        printIntArray(squares[0]);
+        System.out.println("_________y________");
+        printIntArray(squares[1]);
+
 
     }
 
@@ -72,6 +84,32 @@ public class Homework_19_09 {
             tab[destination] = temp;
         }
 
+    }
+
+    /*
+    Dany jest nagłówek funkcji: public static int [ ] [ ] calculateSquares ( int screenWidth , int screenHeight , int side)
+    przyjmujący jako argumenty odpowiednio: szerokość i wysokość ekranu,
+    oraz długość boku kwadratu. Uzupełnij ciało tej metody algorytmem wyliczającym
+    ile kwadratów o zadanej długości boku można umieścić na ekranie.
+    Następnie wyliczyć współrzędne (górnego lewego rogu) x i y wszystkich kwadratów i zwróć je w
+    postaci dwuwymiarowej tablicy w której pierwsza kolumna opisuje współrzędne x a druga y
+     */
+
+    public static int[][] calculateSquares(int screenWidth, int screenHeight, int side) {
+
+        int squaresInRow = screenWidth / side;
+        int squaresInColumn = screenHeight / side;
+
+        int totalSquares = squaresInColumn * squaresInRow;
+
+        int[][] result = new int[2][totalSquares]; // Can I return it?
+
+        for (int i = 0; i < totalSquares; i++) {
+            result[0][i] = (i + i * side) % (squaresInRow * side);
+            result[1][i] = (i + i * side) % (squaresInColumn * side);
+        }
+
+        return result;
     }
 
     public static void printIntArray(int[] array) {
