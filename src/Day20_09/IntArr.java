@@ -20,7 +20,7 @@ public class IntArr {
 
         sortedArray.show();
 
-        System.out.println("--------reversed---------");
+        System.out.println("--------reversed--------");
 
         IntArr reversed = sortedArray.reversed();
         reversed.show();
