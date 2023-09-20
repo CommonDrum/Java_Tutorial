@@ -54,7 +54,7 @@ public class IntArr {
         }
         return maxElement;
     }
-
+//
     public IntArr sorted() {
 
         int[] arrayToSort = arr;
