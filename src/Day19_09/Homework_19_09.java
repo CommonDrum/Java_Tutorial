@@ -109,7 +109,7 @@ public class Homework_19_09 {
         for (int i = 0; i < totalSquares; i++) {
             result[0][i] = (i + i * side) % (squaresInRow * side);
             result[1][i] = (i + i * side) % (squaresInColumn * side);
-        }
+        }//
 
         return result;
     }
@@ -120,9 +120,9 @@ public class Homework_19_09 {
         }
     }
 
-    public static void printIntArrayIndex(int[] array, int index) {
-        System.out.println(array[index]);
-    }
+   // public static void printIntArrayIndex(int[] array, int index) {
+   //     System.out.println(array[index]);
+   // }
 
 
 }
