@@ -1,3 +1,5 @@
+package Day19_09;
+
 import java.lang.Math;
 
 public class Homework_19_09 {
@@ -6,7 +8,7 @@ public class Homework_19_09 {
 
         System.out.println("__________convertFromBinary___________");
 
-        int[] bitsArray = new int[]{1, 0};
+        int[] bitsArray = new int[]{1, 0, 0, 0, 1, 1, 0, 1, 1};
         int result1 = convertFromBinary(bitsArray);
         System.out.println(result1);
 
@@ -26,11 +28,11 @@ public class Homework_19_09 {
 
         System.out.println("__________squares___________");
 
-        int screeenWidth = 2;
-        int screenHeight = 2;
-        int side = 2;
+        int screeenWidth = 12;
+        int screenHeight = 17;
+        int side = 5;
 
-        int[][] squares = calculateSquares(screeenWidth,screenHeight,side);
+        int[][] squares = calculateSquares(screeenWidth, screenHeight, side);
         printIntArray(squares[0]);
         System.out.println("_________y________");
         printIntArray(squares[1]);
@@ -38,13 +40,13 @@ public class Homework_19_09 {
 
     }
 
-    public static int convertFromBinary(int[] bits_array) {
+    public static int convertFromBinary(int[] bitsArray) {
         int result = 0;
-        int arrayLength = bits_array.length;
+        int arrayLength = bitsArray.length;
 
         for (int i = 0; i < arrayLength; i++) {
 
-            result += (int) Math.pow(2, arrayLength - i - 1) * bits_array[i]; // Zakładając, że input to tylko 1/0
+            result += (int) Math.pow(2, arrayLength - i - 1) * bitsArray[i];
         }
 
         return result;
@@ -104,7 +106,7 @@ public class Homework_19_09 {
 
         int[][] result = new int[2][totalSquares]; // Can I return it?
 
-        for (int i = 0; i < totalSquares; i++) {
+        for (int i = 0; i < totalSquares; i++) { // I think other loop is needed
             result[0][i] = (i + i * side) % (squaresInRow * side);
             result[1][i] = (i + i * side) % (squaresInColumn * side);
         }
@@ -116,6 +118,10 @@ public class Homework_19_09 {
         for (int value : array) {
             System.out.println(value);
         }
+    }
+
+    public static void printIntArrayIndex(int[] array, int index) {
+        System.out.println(array[index]);
     }
 
 
