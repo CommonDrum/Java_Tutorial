@@ -1,9 +1,16 @@
 package Day20_09.Vehicles;
 
-public class SportVehicle extends FourWheeler{
+import java.time.LocalDate;
+
+public class SportVehicle extends FourWheeler {
     private boolean isChickMagnet;
 
-    public boolean getIsChickMagnet(){
+    SportVehicle(boolean isChickMagnetIN, String tireTypeIN, String driveTypeIN, LocalDate yearIN, String colourIN) {
+        super(tireTypeIN, driveTypeIN, yearIN, colourIN);
+        isChickMagnet = isChickMagnetIN;
+    }
+
+    public boolean getIsChickMagnet() {
         return isChickMagnet;
     }
 }
