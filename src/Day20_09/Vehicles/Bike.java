@@ -22,4 +22,21 @@ public class Bike extends TwoWheeler {
     public static void ride(int kilometers) {
         System.out.println("You have ridden " + kilometers + " km!");
     }
+
+    public boolean getHasFlappers(){
+        return hasFlappers;
+    }
+
+    public String getBikeType(){
+        return bikeType;
+    }
+
+    public void setHasFlappers(boolean hasFlappersIN){
+        hasFlappers = hasFlappersIN;
+    }
+
+    public void setBikeType(String setBikeTypeIN){
+        bikeType = setBikeTypeIN;
+    }
+
 }

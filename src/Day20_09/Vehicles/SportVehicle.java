@@ -13,4 +13,8 @@ public class SportVehicle extends FourWheeler {
     public boolean getIsChickMagnet() {
         return isChickMagnet;
     }
+
+    public void setChickMagnet(boolean setIsChickMagnetIN){
+        isChickMagnet = setIsChickMagnetIN;
+    }
 }

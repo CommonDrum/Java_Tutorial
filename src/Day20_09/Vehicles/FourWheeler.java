@@ -6,14 +6,25 @@ public abstract class FourWheeler extends Vehicle {
     private String tireType;
     private String driveType;
 
-    FourWheeler(String tireTypeIN, String driveTypeIN, LocalDate yearIN, String colourIN){
-        super(yearIN,colourIN);
-
+    FourWheeler(String tireTypeIN, String driveTypeIN, LocalDate yearIN, String colourIN) {
+        super(yearIN, colourIN);
         tireType = tireTypeIN;
         driveType = driveTypeIN;
     }
 
-    public void setTireType(String newTireType){
+    public String getTireType() {
+        return tireType;
+    }
+
+    public void setTireType(String newTireType) {
         tireType = newTireType;
+    }
+
+    public String getDriveType() {
+        return driveType;
+    }
+
+    public void setDriveType(String newDriveType) {
+        driveType = newDriveType;
     }
 }
