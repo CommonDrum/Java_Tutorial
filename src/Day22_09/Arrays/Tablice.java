@@ -28,49 +28,46 @@ public class Tablice {
 
         names.removeIf(name -> name.equals("Tomek"));
 
-        System.out.println(names);
 
-        int[] sumArray = new int[]{1,2,3,4};
-        System.out.println("sumIntArray: " + sumIntArray(sumArray));
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        System.out.println(sumIntList(numbers));
 
-        //ArrayList<Integer> biggerArray = new ArrayList<>(Arrays.asList(sumArray))
-        //System.out.println("getBiggerThan: " + getBiggerThan(sumArray, 3));
+        List<Integer> biggerThanThree = getBiggerThan(numbers, 3);
+        System.out.println(biggerThanThree);
 
-        String[] namesArray = {"Alice", "Bob", "Christopher"};
-        System.out.println("getLongestName: " + getLongestName(namesArray));
+        List<String> names2 = Arrays.asList("Tomek", "Ania", "Grzegorz", "Dawid");
+        System.out.println(getLongestName(names2));
 
-        System.out.println("doesNameExist (Bob): " + doesNameExist(namesArray, "Bob"));
-        System.out.println("doesNameExist (John): " + doesNameExist(namesArray, "John"));
+        System.out.println(doesNameExist(names2, "Ania"));
+        System.out.println(doesNameExist(names2, "Krzysztof"));
 
+        List<Integer> unsortedNumbers = Arrays.asList(5, 3, 1, 4, 2);
+        System.out.println(bubbleSort(unsortedNumbers));
 
-        String[] arrayA = {"A", "B", "C"};
-        String[] arrayB = {"B", "C", "D", "E"};
+        List<String> namesList1 = Arrays.asList("Tomek", "Ania", "Grzegorz");
+        List<String> namesList2 = Arrays.asList("Ania", "Grzegorz", "Dawid");
+        System.out.println(getCommonElements(namesList1, namesList2));
 
-
-        // Test generateRandom
-
-
-
-
+        System.out.println(generateRandom());
     }
 
 
 
-    public static int sumIntArray(int[] array) {
+
+    public static int sumIntList(List<Integer> numbers) {
         int result = 0;
 
-        for (Integer number : array) {
+        for (Integer number : numbers) {
             result += number;
         }
 
         return result;
     }
 
-    public static ArrayList<Integer> getBiggerThan(ArrayList<Integer> array, int numberToCompare) {
+    public static List<Integer> getBiggerThan(List<Integer> numbers, int numberToCompare) {
+        List<Integer> result = new ArrayList<>();
 
-        ArrayList<Integer> result = new ArrayList<>();
-
-        for (Integer number : array) {
+        for (Integer number : numbers) {
             if (number > numberToCompare) {
                 result.add(number);
             }
@@ -79,11 +76,10 @@ public class Tablice {
         return result;
     }
 
-
-    public static String getLongestName(String[] array) {
+    public static String getLongestName(List<String> names) {
         String longestName = "";
 
-        for (String name : array) {
+        for (String name : names) {
             if (name.length() > longestName.length()) {
                 longestName = name;
             }
@@ -92,9 +88,8 @@ public class Tablice {
         return longestName;
     }
 
-    public static boolean doesNameExist(String[] array, String nameToFind) {
-
-        for (String name : array) {
+    public static boolean doesNameExist(List<String> names, String nameToFind) {
+        for (String name : names) {
             if (Objects.equals(nameToFind, name)) {
                 return true;
             }
@@ -102,16 +97,15 @@ public class Tablice {
         return false;
     }
 
-    public static int[] bubbleSort(int[] array) {
+    public static List<Integer> bubbleSort(List<Integer> numbers) {
+        int n = numbers.size();
 
-        for (int i = 0; i < array.length - 1; i++) {
+        for (int i = 0; i < n - 1; i++) {
             boolean swapped = false;
 
-            for (int j = 0; j < array.length - i - 1; j++) {
-                if (array[j] > array[j + 1]) {
-                    int temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
+            for (int j = 0; j < n - i - 1; j++) {
+                if (numbers.get(j) > numbers.get(j + 1)) {
+                    Collections.swap(numbers, j, j + 1);
                     swapped = true;
                 }
             }
@@ -121,31 +115,26 @@ public class Tablice {
             }
         }
 
-        return array;
+        return numbers;
     }
 
+    public static List<String> getCommonElements(List<String> list1, List<String> list2) {
+        Set<String> result = new HashSet<>(list1);
+        result.retainAll(list2); // Retains only the elements in this set that are contained in the specified collection (list2).
 
-    public static String[] getCommonElements(String[] array1, String[] array2) {
-        Set<String> result = new HashSet<>();
-        for (String name : array1) {
-            if (java.util.Arrays.asList(array2).contains(name)) {
-                result.add(name);
-            }
-        }
-
-        return result.toArray(new String[0]);
+        return new ArrayList<>(result);
     }
 
-    public static int[] generateRandom() {
+    public static List<Integer> generateRandom() {
         Random random = new Random();
-        int arrayLen = random.nextInt(6) + 2;
-        int[] array = new int[arrayLen];
+        int listLen = random.nextInt(6) + 2;
+        List<Integer> numbers = new ArrayList<>();
 
-        for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(9) + 1;
+        for (int i = 0; i < listLen; i++) {
+            numbers.add(random.nextInt(9) + 1);
         }
 
-        return bubbleSort(array);
+        return bubbleSort(numbers);
     }
 
 

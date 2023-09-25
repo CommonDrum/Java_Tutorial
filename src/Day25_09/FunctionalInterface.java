@@ -15,9 +15,6 @@ Predicate <T> – przyjmuje dowolny obiekt, ale zwraca boolean (T, boolean),
 
     public static void main(String[] args){
 
-        Function<String, Integer>{
-
-        }
 
     }
 }
