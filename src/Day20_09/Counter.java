@@ -2,7 +2,11 @@ package Day20_09;
 
 public class Counter {
 
-    private int state = 0;
+    private int state;
+
+    public Counter(){
+        this.state = 0;
+    }
 
     public int getState(){
         return state;

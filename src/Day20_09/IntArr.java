@@ -32,7 +32,7 @@ public class IntArr {
 
     IntArr(int n) {
         arr = new int[n];
-    }
+    } // Do poprawy
 
     IntArr(int[] arrIn) {
         arr = arrIn;
@@ -47,9 +47,9 @@ public class IntArr {
     public int max() {
         int maxElement = arr[0];
 
-        for (int j : arr) {
-            if (maxElement < j) {
-                maxElement = j;
+        for (int element : arr) {
+            if (maxElement < element) {
+                maxElement = element;
             }
         }
         return maxElement;
@@ -59,11 +59,10 @@ public class IntArr {
 
         int[] arrayToSort = arr;
 
-        int i, j;
         boolean swapped;
         for (i = 0; i < arrayToSort.length - 1; i++) {
             swapped = false;
-            for (j = 0; j < arrayToSort.length - i - 1; j++) {
+            for (int j = 0; j < arrayToSort.length - i - 1; j++) {
                 if (arrayToSort[j] > arrayToSort[j + 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
@@ -74,6 +73,7 @@ public class IntArr {
 
             if (!swapped)
                 break;
+            }
         }
         return new IntArr(arrayToSort);
     }
