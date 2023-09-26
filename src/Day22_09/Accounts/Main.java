@@ -1,6 +1,5 @@
-package Day22_09;
+package Day22_09.Accounts;
 
-import java.util.List;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args){

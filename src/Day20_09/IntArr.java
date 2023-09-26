@@ -60,7 +60,7 @@ public class IntArr {
         int[] arrayToSort = arr;
 
         boolean swapped;
-        for (i = 0; i < arrayToSort.length - 1; i++) {
+        for (int i = 0; i < arrayToSort.length - 1; i++) {
             swapped = false;
             for (int j = 0; j < arrayToSort.length - i - 1; j++) {
                 if (arrayToSort[j] > arrayToSort[j + 1]) {
@@ -74,7 +74,6 @@ public class IntArr {
             if (!swapped)
                 break;
             }
-        }
         return new IntArr(arrayToSort);
     }
 

@@ -1,4 +1,4 @@
-package Day22_09;
+package Day22_09.Accounts;
 
 public class Person {
     private String firstName;
